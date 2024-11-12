@@ -33,3 +33,20 @@ history = StreamlitChatMessageHistory()
 
 for message in history.messages:
   st.chat_message(message.type).write(message.content)
+
+prompt = st.chat_input("What is up?")
+
+if prompt:
+  with st.chat_message("user")
+    st.markdown(prompt)
+
+  with st.chat_message("assistant")
+    callback = StreamlitCallbackHandler(st.container())
+
+    agent_chain = create_agent_chain(history)
+    response = agent_chain.invoke(
+      {"input": prompt},
+      {"callbacks": [callback]},
+    )
+
+    st.markdown(response["output"])
