@@ -12,8 +12,8 @@ load_dotenv()
 
 def create_agent_chain(history):
   chat = ChatOpenAI(
-    model_name="gpt-4o-mini"
-    temperature=0
+    model_name=os.environ["OPENAI_API_MODEL"],
+    temperature=os.environ["OPENAI_API_TEMPERATURE"]
   )
 
   tools = load_tools(["ddg-search", "wikipedia"])
