@@ -37,10 +37,10 @@ for message in history.messages:
 prompt = st.chat_input("What is up?")
 
 if prompt:
-  with st.chat_message("user")
+  with st.chat_message("user"):
     st.markdown(prompt)
 
-  with st.chat_message("assistant")
+  with st.chat_message("assistant"):
     callback = StreamlitCallbackHandler(st.container())
 
     agent_chain = create_agent_chain(history)
